@@ -1,0 +1,18 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.jeep": {
+      "initial_state": "idle",
+      "states": {
+        "idle": {
+          "animations": ["idle"],
+          "transitions": [{ "drive": "query.modified_move_speed > 0.01" }]
+        },
+        "drive": {
+          "animations": ["idle", "drive"],
+          "transitions": [{ "idle": "query.modified_move_speed <= 0.01" }]
+        }
+      }
+    }
+  }
+}

@@ -1,2 +1,4 @@
 entity.lion_pack:lion.name=Lion
 item.spawn_egg.entity.lion_pack:lion.name=Spawn Lion
+entity.lion_pack:jeep.name=Jeep
+item.spawn_egg.entity.lion_pack:jeep.name=Spawn Jeep

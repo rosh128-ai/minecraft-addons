@@ -1,0 +1,22 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "lion_pack:jeep",
+      "materials": { "default": "entity_alphatest" },
+      "textures": { "default": "textures/entity/jeep" },
+      "geometry": { "default": "geometry.jeep" },
+      "animations": {
+        "idle": "animation.jeep.idle",
+        "drive": "animation.jeep.drive",
+        "controller": "controller.animation.jeep"
+      },
+      "scripts": { "animate": ["controller"] },
+      "render_controllers": ["controller.render.jeep"],
+      "spawn_egg": {
+        "base_color": "#C8A050",
+        "overlay_color": "#2A2A2A"
+      }
+    }
+  }
+}

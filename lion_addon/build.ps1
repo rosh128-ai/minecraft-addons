@@ -282,7 +282,71 @@ Rect $g 112 12  1  4 "#2A1200"          # top face — faint warmth
 Rect $g 112 16  1  1 "#0A0400"          # front face — absolute darkest pixel
 
 
+
+# ── Generate 64x64 Jeep texture ───────────────────────────────────────────────
+$jeepTexPath = Join-Path $scriptDir "lion_RP\textures\entity\jeep.png"
+$jbmp = New-Bmp 64 64
+$jg   = Get-Gfx $jbmp
+
+# Base fill — desert tan
+Rect $jg  0  0 64 64 "#C8A050"
+
+# ── CHASSIS [0,0] W=10 H=3 D=14 ─────────────────────────────────────────────
+# Top face [14,0]→[24,14]: sunlit lighter tan
+Rect $jg 14  0 10 14 "#D4B060"
+# Sides base [0,14]→[48,17]
+Rect $jg  0 14 48  3 "#B89040"
+# Front face of chassis [14,14]→[24,17]: darker, grille
+Rect $jg 14 14 10  3 "#906830"
+# Grille horizontal lines
+Px $jg 15 15 "#1A1A1A" ; Px $jg 17 15 "#1A1A1A" ; Px $jg 19 15 "#1A1A1A"
+Px $jg 21 15 "#1A1A1A" ; Px $jg 23 15 "#1A1A1A"
+# Headlights on front face
+Rect $jg 14 14  2  2 "#F0E870"  # left headlight
+Rect $jg 22 14  2  2 "#F0E870"  # right headlight
+
+# ── HOOD [0,18] W=8 H=3 D=5 ──────────────────────────────────────────────────
+# All faces: tan base
+Rect $jg  0 18 26  8 "#C8A050"
+# Top face [5,18]→[13,23]: brightest (most sunlight)
+Rect $jg  5 18  8  5 "#E0C070"
+# Front face [5,23]→[13,26]: slightly darker
+Rect $jg  5 23  8  3 "#B89040"
+
+# ── CABIN [0,27] W=8 H=6 D=7 ─────────────────────────────────────────────────
+# All faces: tan base
+Rect $jg  0 27 30 13 "#C8A050"
+# Top face [7,27]→[15,34]: tan top
+Rect $jg  7 27  8  7 "#D4B060"
+# FRONT face [7,34]→[15,40]: windshield (dark glass)
+Rect $jg  7 34  8  6 "#141C28"
+# Window pane highlight
+Rect $jg  8 35  6  3 "#1E2E48"
+# Windshield frame
+Px $jg  7 34 "#B89040" ; Px $jg 14 34 "#B89040"  # top corners
+Px $jg  7 39 "#B89040" ; Px $jg 14 39 "#B89040"  # bottom corners
+# Side windows on left face [0,34]→[7,40]
+Rect $jg  1 35  5  4 "#1E2E48"  # left side window
+# Side windows on right face [23,34]→[30,40]
+Rect $jg 24 35  5  4 "#1E2E48"  # right side window
+
+# ── WHEELS [32,0] W=2 H=4 D=4 ───────────────────────────────────────────────
+# All faces: dark tyre
+Rect $jg 32  0 12  8 "#1A1A1A"
+# Top face [36,0]→[38,4]: dark hub
+Rect $jg 36  0  2  4 "#3A3A3A"
+# Front face [36,4]→[38,8]: hub detail
+Rect $jg 36  4  2  4 "#4A4A4A"
+# Hub bolt
+Px $jg 36  5 "#7A7A7A" ; Px $jg 37  6 "#7A7A7A"
+
+$jg.Dispose()
+$jbmp.Save($jeepTexPath, [System.Drawing.Imaging.ImageFormat]::Png)
+$jbmp.Dispose()
+Write-Host "  Jeep texture generated (64x64): $jeepTexPath" -ForegroundColor Green
+
 $g.Dispose()
+
 $bmp.Save($texPath, [System.Drawing.Imaging.ImageFormat]::Png)
 $bmp.Dispose()
 Write-Host "  Texture generated (128x64): $texPath" -ForegroundColor Green

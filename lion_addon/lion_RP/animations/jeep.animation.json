@@ -1,0 +1,27 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.jeep.idle": {
+      "loop": true,
+      "animation_length": 2.0,
+      "bones": {
+        "chassis": {
+          "position": {
+            "0.0": [0, 0, 0],
+            "1.0": [0, 0.15, 0],
+            "2.0": [0, 0, 0]
+          }
+        }
+      }
+    },
+    "animation.jeep.drive": {
+      "loop": true,
+      "bones": {
+        "wheelFL": { "rotation": ["query.modified_move_speed * -400", 0, 0] },
+        "wheelFR": { "rotation": ["query.modified_move_speed * -400", 0, 0] },
+        "wheelBL": { "rotation": ["query.modified_move_speed * -400", 0, 0] },
+        "wheelBR": { "rotation": ["query.modified_move_speed * -400", 0, 0] }
+      }
+    }
+  }
+}
