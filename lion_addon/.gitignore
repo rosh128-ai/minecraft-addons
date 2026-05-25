@@ -1,0 +1,19 @@
+# Built output — don't track the binary
+lion_addon.mcaddon
+
+# Generated texture (re-created by build.ps1)
+lion_RP/textures/entity/lion.png
+lion_RP/textures/entity/jeep.png
+lion_BP/pack_icon.png
+lion_RP/pack_icon.png
+
+# Windows junk
+Thumbs.db
+desktop.ini
+
+# macOS junk
+.DS_Store
+
+# Editor directories
+.vscode/
+.idea/

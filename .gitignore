@@ -1,0 +1,22 @@
+# Built outputs — don't track binaries
+*.mcaddon
+
+# Generated textures (recreated by each addon's build.ps1)
+**/textures/entity/lion.png
+**/textures/entity/jeep.png
+**/pack_icon.png
+
+# Windows
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+
+# Editor directories
+.vscode/
+.idea/
+*.suo
+*.user

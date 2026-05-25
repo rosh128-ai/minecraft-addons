@@ -1,0 +1,47 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:spawn_rules": {
+        "description": {
+            "identifier": "lion_pack:lion",
+            "population_control": "animal"
+        },
+        "conditions": [
+            {
+                "filters": {
+                    "all_of": [
+                        {
+                            "test": "is_biome",
+                            "value": "savanna"
+                        },
+                        {
+                            "test": "is_biome",
+                            "value": "savanna_plateau",
+                            "operator": "!="
+                        }
+                    ]
+                },
+                "minecraft:spawns_on_surface": {},
+                "minecraft:spawns_above_block_filter": {
+                    "blocks": "minecraft:grass",
+                    "distance": 1
+                },
+                "minecraft:brightness_filter": {
+                    "min": 7,
+                    "max": 15,
+                    "adjust_for_weather": false
+                },
+                "minecraft:difficulty_filter": {
+                    "min": "easy",
+                    "max": "hard"
+                },
+                "minecraft:herd": {
+                    "min_size": 2,
+                    "max_size": 4
+                },
+                "minecraft:weight": {
+                    "default": 6
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.lion": {
+            "initial_state": "idle",
+            "states": {
+                "idle": {
+                    "animations": ["idle"],
+                    "transitions": [
+                        { "walk": "query.modified_move_speed > 0.01" }
+                    ]
+                },
+                "walk": {
+                    "animations": [
+                        {
+                            "walk": "query.modified_move_speed"
+                        }
+                    ],
+                    "transitions": [
+                        { "idle": "query.modified_move_speed <= 0.01" }
+                    ]
+                }
+            }
+        }
+    }
+}

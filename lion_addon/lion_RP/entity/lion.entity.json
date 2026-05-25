@@ -1,0 +1,35 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "lion_pack:lion",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/entity/lion"
+            },
+            "geometry": {
+                "default": "geometry.lion"
+            },
+            "animations": {
+                "walk": "animation.lion.walk",
+                "idle": "animation.lion.idle",
+                "attack": "animation.lion.attack",
+                "controller": "controller.animation.lion"
+            },
+            "scripts": {
+                "animate": [
+                    "controller"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.lion"
+            ],
+            "spawn_egg": {
+                "base_color": "#C8922A",
+                "overlay_color": "#7A4A0A"
+            }
+        }
+    }
+}

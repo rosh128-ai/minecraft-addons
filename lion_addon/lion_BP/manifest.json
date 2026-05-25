@@ -1,0 +1,24 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "Lion Addon - Behaviors",
+        "description": "Adds a hostile Lion mob to Minecraft Bedrock",
+        "uuid": "4a3f2e1d-9b8c-4d5e-a6b7-c8d9e0f12345",
+        "version": [1, 0, 0],
+        "min_engine_version": [1, 26, 0]
+    },
+    "modules": [
+        {
+            "description": "Lion Addon behavior data",
+            "type": "data",
+            "uuid": "5b4a3f2e-0c9d-5e6f-b7c8-d9e0f1234567",
+            "version": [1, 0, 0]
+        }
+    ],
+    "dependencies": [
+        {
+            "uuid": "6c5b4a3f-1d0e-5f7a-c8d9-e0f123456789",
+            "version": [1, 0, 0]
+        }
+    ]
+}
