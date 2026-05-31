@@ -3,7 +3,7 @@
   "minecraft:client_entity": {
     "description": {
       "identifier": "lion_pack:jeep",
-      "materials": { "default": "entity_alphatest" },
+      "materials": { "default": "entity_alphablend" },
       "textures": { "default": "textures/entity/jeep" },
       "geometry": { "default": "geometry.jeep" },
       "animations": {
