@@ -283,67 +283,74 @@ Rect $g 112 16  1  1 "#0A0400"          # front face — absolute darkest pixel
 
 
 
-# ── Generate 64x64 Jeep texture ───────────────────────────────────────────────
+# ── Generate 64x64 Jeep texture (per-face colour palette) ────────────────────
+# The new geo uses per-face UV: each face maps to one 8×8 colour patch.
+# Patch map (UV → colour purpose):
+#   [ 0, 0] body tan      → chassis/hood sides, cabin back/top base
+#   [ 8, 0] hood top      → lit top of hood (sunlight)
+#   [16, 0] underbody     → chassis bottom face (shadow)
+#   [24, 0] windshield    → cabin north face (front glass)
+#   [32, 0] side window   → cabin east/west faces
+#   [40, 0] grille+lights → chassis north face (front)
+#   [48, 0] reserved tan  → cabin south (rear)
+#   [56, 0] tyre          → wheel outer faces
+#   [ 0, 8] wheel hub     → wheel inner faces (east/west)
+#   [ 8, 8] roof          → cabin top face
 $jeepTexPath = Join-Path $scriptDir "lion_RP\textures\entity\jeep.png"
 $jbmp = New-Bmp 64 64
 $jg   = Get-Gfx $jbmp
 
-# Base fill — desert tan
-Rect $jg  0  0 64 64 "#C8A050"
+Rect $jg  0  0 64 64 "#C8A050"   # base fill — body tan
 
-# ── CHASSIS [0,0] W=10 H=3 D=14 ─────────────────────────────────────────────
-# Top face [14,0]→[24,14]: sunlit lighter tan
-Rect $jg 14  0 10 14 "#D4B060"
-# Sides base [0,14]→[48,17]
-Rect $jg  0 14 48  3 "#B89040"
-# Front face of chassis [14,14]→[24,17]: darker, grille
-Rect $jg 14 14 10  3 "#906830"
-# Grille horizontal lines
-Px $jg 15 15 "#1A1A1A" ; Px $jg 17 15 "#1A1A1A" ; Px $jg 19 15 "#1A1A1A"
-Px $jg 21 15 "#1A1A1A" ; Px $jg 23 15 "#1A1A1A"
-# Headlights on front face
-Rect $jg 14 14  2  2 "#F0E870"  # left headlight
-Rect $jg 22 14  2  2 "#F0E870"  # right headlight
+# [0,0]  8×8 — body tan (chassis sides, hood sides, cabin rear)
+Rect $jg  0  0  8  8 "#C8A050"
 
-# ── HOOD [0,18] W=8 H=3 D=5 ──────────────────────────────────────────────────
-# All faces: tan base
-Rect $jg  0 18 26  8 "#C8A050"
-# Top face [5,18]→[13,23]: brightest (most sunlight)
-Rect $jg  5 18  8  5 "#E0C070"
-# Front face [5,23]→[13,26]: slightly darker
-Rect $jg  5 23  8  3 "#B89040"
+# [8,0]  8×8 — hood top (brighter, sun-lit)
+Rect $jg  8  0  8  8 "#E0C070"
 
-# ── CABIN [0,27] W=8 H=6 D=7 ─────────────────────────────────────────────────
-# All faces: tan base
-Rect $jg  0 27 30 13 "#C8A050"
-# Top face [7,27]→[15,34]: tan top
-Rect $jg  7 27  8  7 "#D4B060"
-# FRONT face [7,34]→[15,40]: windshield (dark glass)
-Rect $jg  7 34  8  6 "#141C28"
-# Window pane highlight
-Rect $jg  8 35  6  3 "#1E2E48"
-# Windshield frame
-Px $jg  7 34 "#B89040" ; Px $jg 14 34 "#B89040"  # top corners
-Px $jg  7 39 "#B89040" ; Px $jg 14 39 "#B89040"  # bottom corners
-# Side windows on left face [0,34]→[7,40]
-Rect $jg  1 35  5  4 "#1E2E48"  # left side window
-# Side windows on right face [23,34]→[30,40]
-Rect $jg 24 35  5  4 "#1E2E48"  # right side window
+# [16,0] 8×8 — underbody (darker, in shadow)
+Rect $jg 16  0  8  8 "#8A6828"
 
-# ── WHEELS [32,0] W=2 H=4 D=4 ───────────────────────────────────────────────
-# All faces: dark tyre
-Rect $jg 32  0 12  8 "#1A1A1A"
-# Top face [36,0]→[38,4]: dark hub
-Rect $jg 36  0  2  4 "#3A3A3A"
-# Front face [36,4]→[38,8]: hub detail
-Rect $jg 36  4  2  4 "#4A4A4A"
-# Hub bolt
-Px $jg 36  5 "#7A7A7A" ; Px $jg 37  6 "#7A7A7A"
+# [24,0] 8×8 — windshield (dark glass)
+Rect $jg 24  0  8  8 "#141C28"
+Rect $jg 25  1  6  5 "#1E2E48"   # lighter glass centre
+Px $jg 24 0 "#C8A050" ; Px $jg 31 0 "#C8A050"   # tan frame corners top
+Px $jg 24 7 "#C8A050" ; Px $jg 31 7 "#C8A050"   # tan frame corners bottom
+
+# [32,0] 8×8 — side window (tan body with dark window cutout)
+Rect $jg 32  0  8  8 "#C8A050"
+Rect $jg 33  1  6  5 "#1E2E48"   # side window glass
+
+# [40,0] 8×8 — front grille + headlights
+Rect $jg 40  0  8  8 "#3A2A10"   # dark grille base
+Rect $jg 40  3  8  1 "#1A1A0A"   # grille bar 1
+Rect $jg 40  5  8  1 "#1A1A0A"   # grille bar 2
+Rect $jg 40  0  2  2 "#F0E870"   # left headlight (bright yellow)
+Rect $jg 46  0  2  2 "#F0E870"   # right headlight
+
+# [48,0] 8×8 — rear of cabin (plain tan with tail light hint)
+Rect $jg 48  0  8  8 "#C8A050"
+Rect $jg 48  1  2  2 "#C83020"   # left tail light (red)
+Rect $jg 54  1  2  2 "#C83020"   # right tail light (red)
+
+# [56,0] 8×8 — tyre (near black)
+Rect $jg 56  0  8  8 "#1A1A1A"
+Rect $jg 57  1  6  6 "#252525"   # tread highlight
+
+# [0,8]  8×8 — wheel hub (grey, inner face of wheel)
+Rect $jg  0  8  8  8 "#3A3A3A"
+Rect $jg  1  9  6  6 "#5A5A5A"   # hub plate lighter
+Px $jg 4 12 "#8A8A8A"             # hub centre bolt
+
+# [8,8]  8×8 — roof / cabin top (slight tan shade variation)
+Rect $jg  8  8  8  8 "#D4B060"
+Rect $jg  9  9  6  5 "#C8A050"   # subtle shadow inset
 
 $jg.Dispose()
 $jbmp.Save($jeepTexPath, [System.Drawing.Imaging.ImageFormat]::Png)
 $jbmp.Dispose()
-Write-Host "  Jeep texture generated (64x64): $jeepTexPath" -ForegroundColor Green
+Write-Host "  Jeep texture generated (64x64, per-face palette): $jeepTexPath" -ForegroundColor Green
+
 
 $g.Dispose()
 

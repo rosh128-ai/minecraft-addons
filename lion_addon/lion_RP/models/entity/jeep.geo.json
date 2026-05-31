@@ -1,102 +1,151 @@
 {
-  "format_version": "1.12.0",
-  "minecraft:geometry": [
-    {
-      "description": {
-        "identifier": "geometry.jeep",
-        "texture_width": 64,
-        "texture_height": 64
-      },
-      "bones": [
+    "format_version": "1.12.0",
+    "minecraft:geometry": [
         {
-          "name": "root",
-          "pivot": [0, 0, 0]
-        },
-        {
-          "name": "chassis",
-          "parent": "root",
-          "pivot": [0, 2, 0],
-          "cubes": [
-            {
-              "origin": [-5, 2, -7],
-              "size": [10, 3, 14],
-              "uv": [0, 0]
-            }
-          ]
-        },
-        {
-          "name": "hood",
-          "parent": "chassis",
-          "pivot": [0, 5, -4],
-          "cubes": [
-            {
-              "origin": [-4, 5, -7],
-              "size": [8, 3, 5],
-              "uv": [0, 18]
-            }
-          ]
-        },
-        {
-          "name": "cabin",
-          "parent": "chassis",
-          "pivot": [0, 5, 1],
-          "cubes": [
-            {
-              "origin": [-4, 5, -2],
-              "size": [8, 6, 7],
-              "uv": [0, 27]
-            }
-          ]
-        },
-        {
-          "name": "wheelFL",
-          "parent": "chassis",
-          "pivot": [6, 3, -4],
-          "cubes": [
-            {
-              "origin": [5, 1, -6],
-              "size": [2, 4, 4],
-              "uv": [32, 0]
-            }
-          ]
-        },
-        {
-          "name": "wheelFR",
-          "parent": "chassis",
-          "pivot": [-6, 3, -4],
-          "cubes": [
-            {
-              "origin": [-7, 1, -6],
-              "size": [2, 4, 4],
-              "uv": [32, 0]
-            }
-          ]
-        },
-        {
-          "name": "wheelBL",
-          "parent": "chassis",
-          "pivot": [6, 3, 3],
-          "cubes": [
-            {
-              "origin": [5, 1, 1],
-              "size": [2, 4, 4],
-              "uv": [32, 0]
-            }
-          ]
-        },
-        {
-          "name": "wheelBR",
-          "parent": "chassis",
-          "pivot": [-6, 3, 3],
-          "cubes": [
-            {
-              "origin": [-7, 1, 1],
-              "size": [2, 4, 4],
-              "uv": [32, 0]
-            }
-          ]
+            "description": {
+                "identifier": "geometry.jeep",
+                "texture_width": 64,
+                "texture_height": 64
+            },
+            "bones": [
+                {
+                    "name": "root",
+                    "pivot": [0, 0, 0]
+                },
+                {
+                    "name": "chassis",
+                    "parent": "root",
+                    "pivot": [0, 4, 0],
+                    "cubes": [
+                        {
+                            "origin": [-24, 4, -48],
+                            "size":   [48, 14, 96],
+                            "uv": {
+                                "up":    { "uv": [ 0, 0], "uv_size": [8, 8] },
+                                "down":  { "uv": [16, 0], "uv_size": [8, 8] },
+                                "north": { "uv": [40, 0], "uv_size": [8, 8] },
+                                "south": { "uv": [ 0, 0], "uv_size": [8, 8] },
+                                "east":  { "uv": [ 0, 0], "uv_size": [8, 8] },
+                                "west":  { "uv": [ 0, 0], "uv_size": [8, 8] }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "hood",
+                    "parent": "chassis",
+                    "pivot": [0, 18, -30],
+                    "cubes": [
+                        {
+                            "origin": [-22, 18, -48],
+                            "size":   [44, 14, 36],
+                            "uv": {
+                                "up":    { "uv": [ 8, 0], "uv_size": [8, 8] },
+                                "down":  { "uv": [ 0, 0], "uv_size": [8, 8] },
+                                "north": { "uv": [40, 0], "uv_size": [8, 8] },
+                                "south": { "uv": [ 0, 0], "uv_size": [8, 8] },
+                                "east":  { "uv": [ 0, 0], "uv_size": [8, 8] },
+                                "west":  { "uv": [ 0, 0], "uv_size": [8, 8] }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "cabin",
+                    "parent": "chassis",
+                    "pivot": [0, 18, 12],
+                    "cubes": [
+                        {
+                            "origin": [-22, 18, -12],
+                            "size":   [44, 46, 60],
+                            "uv": {
+                                "up":    { "uv": [ 8, 8], "uv_size": [8, 8] },
+                                "down":  { "uv": [ 0, 0], "uv_size": [8, 8] },
+                                "north": { "uv": [24, 0], "uv_size": [8, 8] },
+                                "south": { "uv": [ 0, 0], "uv_size": [8, 8] },
+                                "east":  { "uv": [32, 0], "uv_size": [8, 8] },
+                                "west":  { "uv": [32, 0], "uv_size": [8, 8] }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "wheelFL",
+                    "parent": "chassis",
+                    "pivot": [28, 12, -28],
+                    "cubes": [
+                        {
+                            "origin": [24, 0, -40],
+                            "size":   [8, 24, 24],
+                            "uv": {
+                                "up":    { "uv": [56, 0], "uv_size": [8, 8] },
+                                "down":  { "uv": [56, 0], "uv_size": [8, 8] },
+                                "north": { "uv": [56, 0], "uv_size": [8, 8] },
+                                "south": { "uv": [56, 0], "uv_size": [8, 8] },
+                                "east":  { "uv": [ 0, 8], "uv_size": [8, 8] },
+                                "west":  { "uv": [ 0, 8], "uv_size": [8, 8] }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "wheelFR",
+                    "parent": "chassis",
+                    "pivot": [-28, 12, -28],
+                    "cubes": [
+                        {
+                            "origin": [-32, 0, -40],
+                            "size":   [8, 24, 24],
+                            "uv": {
+                                "up":    { "uv": [56, 0], "uv_size": [8, 8] },
+                                "down":  { "uv": [56, 0], "uv_size": [8, 8] },
+                                "north": { "uv": [56, 0], "uv_size": [8, 8] },
+                                "south": { "uv": [56, 0], "uv_size": [8, 8] },
+                                "east":  { "uv": [ 0, 8], "uv_size": [8, 8] },
+                                "west":  { "uv": [ 0, 8], "uv_size": [8, 8] }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "wheelBL",
+                    "parent": "chassis",
+                    "pivot": [28, 12, 24],
+                    "cubes": [
+                        {
+                            "origin": [24, 0, 12],
+                            "size":   [8, 24, 24],
+                            "uv": {
+                                "up":    { "uv": [56, 0], "uv_size": [8, 8] },
+                                "down":  { "uv": [56, 0], "uv_size": [8, 8] },
+                                "north": { "uv": [56, 0], "uv_size": [8, 8] },
+                                "south": { "uv": [56, 0], "uv_size": [8, 8] },
+                                "east":  { "uv": [ 0, 8], "uv_size": [8, 8] },
+                                "west":  { "uv": [ 0, 8], "uv_size": [8, 8] }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "wheelBR",
+                    "parent": "chassis",
+                    "pivot": [-28, 12, 24],
+                    "cubes": [
+                        {
+                            "origin": [-32, 0, 12],
+                            "size":   [8, 24, 24],
+                            "uv": {
+                                "up":    { "uv": [56, 0], "uv_size": [8, 8] },
+                                "down":  { "uv": [56, 0], "uv_size": [8, 8] },
+                                "north": { "uv": [56, 0], "uv_size": [8, 8] },
+                                "south": { "uv": [56, 0], "uv_size": [8, 8] },
+                                "east":  { "uv": [ 0, 8], "uv_size": [8, 8] },
+                                "west":  { "uv": [ 0, 8], "uv_size": [8, 8] }
+                            }
+                        }
+                    ]
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ]
 }
