@@ -316,7 +316,7 @@ Rect $jg 24  0  8  1 "#C8A050"   # top frame
 Rect $jg 24  6  8  2 "#C8A050"   # bottom frame
 Rect $jg 24  1  1  5 "#C8A050"   # left frame
 Rect $jg 31  1  1  5 "#C8A050"   # right frame
-$windshieldGlass = [System.Drawing.Color]::FromArgb(100, 30, 46, 72)
+$windshieldGlass = [System.Drawing.Color]::FromArgb(0, 30, 46, 72)
 $windshieldBr = New-Object System.Drawing.SolidBrush($windshieldGlass)
 $jg.FillRectangle($windshieldBr, 25, 1, 6, 5)
 $windshieldBr.Dispose()
@@ -326,7 +326,7 @@ Rect $jg 32  0  8  1 "#C8A050"   # top frame
 Rect $jg 32  6  8  2 "#C8A050"   # bottom frame
 Rect $jg 32  1  1  5 "#C8A050"   # left frame
 Rect $jg 39  1  1  5 "#C8A050"   # right frame
-$sideGlass = [System.Drawing.Color]::FromArgb(100, 30, 46, 72)
+$sideGlass = [System.Drawing.Color]::FromArgb(0, 30, 46, 72)
 $sideBr = New-Object System.Drawing.SolidBrush($sideGlass)
 $jg.FillRectangle($sideBr, 33, 1, 6, 5)
 $sideBr.Dispose()

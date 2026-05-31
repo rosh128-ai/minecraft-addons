@@ -27,7 +27,7 @@
         "interact_text": "action.interact.ride",
         "seats": [
           {
-            "position": [0, 3.0, 0.0],
+            "position": [0, 1.2, -0.3],
             "min_rider_count": 0,
             "max_rider_count": 1
           }
