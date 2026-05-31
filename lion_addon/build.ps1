@@ -316,20 +316,57 @@ Rect $jg 24  0  8  1 "#C8A050"   # top frame
 Rect $jg 24  6  8  2 "#C8A050"   # bottom frame
 Rect $jg 24  1  1  5 "#C8A050"   # left frame
 Rect $jg 31  1  1  5 "#C8A050"   # right frame
-$windshieldGlass = [System.Drawing.Color]::FromArgb(0, 30, 46, 72)
-$windshieldBr = New-Object System.Drawing.SolidBrush($windshieldGlass)
-$jg.FillRectangle($windshieldBr, 25, 1, 6, 5)
-$windshieldBr.Dispose()
+# [24,0] 8×8 — windshield (authentic Minecraft glass pane style)
+Rect $jg 24  0  8  1 "#C8A050"   # top frame
+Rect $jg 24  6  8  2 "#C8A050"   # bottom frame
+Rect $jg 24  1  1  5 "#C8A050"   # left frame
+Rect $jg 31  1  1  5 "#C8A050"   # right frame
+# Soft translucent sky-blue tint base
+$glassTint = [System.Drawing.Color]::FromArgb(35, 140, 190, 240)
+$tintBr = New-Object System.Drawing.SolidBrush($glassTint)
+$jg.FillRectangle($tintBr, 25, 1, 6, 5)
+$tintBr.Dispose()
+# Bright white highlights (top and left borders of the glass pane)
+$whiteHighlight = [System.Drawing.Color]::FromArgb(130, 255, 255, 255)
+$whiteBr = New-Object System.Drawing.SolidBrush($whiteHighlight)
+$jg.FillRectangle($whiteBr, 25, 1, 5, 1)   # top glass edge
+$jg.FillRectangle($whiteBr, 25, 2, 1, 3)   # left glass edge
+$whiteBr.Dispose()
+# Dark border shadows (bottom and right borders of the glass pane)
+$shadowCol = [System.Drawing.Color]::FromArgb(70, 10, 20, 40)
+$shadowBr = New-Object System.Drawing.SolidBrush($shadowCol)
+$jg.FillRectangle($shadowBr, 26, 5, 5, 1)   # bottom glass edge
+$jg.FillRectangle($shadowBr, 30, 1, 1, 4)   # right glass edge
+$shadowBr.Dispose()
+# Classic diagonal glass sheen streak
+$sheenCol = [System.Drawing.Color]::FromArgb(100, 255, 255, 255)
+$sheenBr = New-Object System.Drawing.SolidBrush($sheenCol)
+$jg.FillRectangle($sheenBr, 28, 2, 1, 2)
+$sheenBr.Dispose()
 
-# [32,0] 8×8 — side window (semi-transparent tinted glass with tan frame)
+# [32,0] 8×8 — side window (authentic Minecraft glass pane style)
 Rect $jg 32  0  8  1 "#C8A050"   # top frame
 Rect $jg 32  6  8  2 "#C8A050"   # bottom frame
 Rect $jg 32  1  1  5 "#C8A050"   # left frame
 Rect $jg 39  1  1  5 "#C8A050"   # right frame
-$sideGlass = [System.Drawing.Color]::FromArgb(0, 30, 46, 72)
-$sideBr = New-Object System.Drawing.SolidBrush($sideGlass)
-$jg.FillRectangle($sideBr, 33, 1, 6, 5)
-$sideBr.Dispose()
+# Soft translucent sky-blue tint base
+$sideTintBr = New-Object System.Drawing.SolidBrush($glassTint)
+$jg.FillRectangle($sideTintBr, 33, 1, 6, 5)
+$sideTintBr.Dispose()
+# Bright white highlights (top and left borders)
+$sideWhiteBr = New-Object System.Drawing.SolidBrush($whiteHighlight)
+$jg.FillRectangle($sideWhiteBr, 33, 1, 5, 1)
+$jg.FillRectangle($sideWhiteBr, 33, 2, 1, 3)
+$sideWhiteBr.Dispose()
+# Dark border shadows (bottom and right borders)
+$sideShadowBr = New-Object System.Drawing.SolidBrush($shadowCol)
+$jg.FillRectangle($sideShadowBr, 34, 5, 5, 1)
+$jg.FillRectangle($sideShadowBr, 38, 1, 1, 4)
+$sideShadowBr.Dispose()
+# Diagonal sheen streak
+$sideSheenBr = New-Object System.Drawing.SolidBrush($sheenCol)
+$jg.FillRectangle($sideSheenBr, 36, 2, 1, 2)
+$sideSheenBr.Dispose()
 
 # [40,0] 8×8 — front grille + headlights
 Rect $jg 40  0  8  8 "#3A2A10"   # dark grille base
